@@ -1,0 +1,23 @@
+﻿#customers {
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    #customers td, #customers th {
+        font-size: 20px;
+        border: 1px solid #6befa0;
+        padding: 3px 7px 2px 7px;
+    }
+
+    #customers th {
+        font-size: 1.1em;
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        background-color: rgb(24, 95, 55);
+        color: white;
+    }
+tr:nth-child(2n) {
+    background-color: rgb(152, 251, 182)
+}
