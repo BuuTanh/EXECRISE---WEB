@@ -1,0 +1,141 @@
+<html>
+<head>
+    <title>Ex48 - Trần Lê Bữu Tánh</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script>
+        function Register() {
+            alert("Register successfully");
+        }
+        function Cancel() {
+            document.getElementById("registerForm").reset();
+        }
+    </script>
+</head>
+<body>
+    <form action="#" id="registerForm">
+        <header>
+            <img src="images/Jackson.gif" alt="Logo" />
+            <h1>Registration Form</h1>
+            <p>Register your Jackson Electronics product here</p>
+        </header>
+        <main class="container">
+            <div class="container--item">
+                <label class="form__label" for="">First Name:</label>
+                <input type="text" name="firstname" id="firstname" />
+                <label class="container__label" for="">Last Name:</label>
+                <input type="text" name="lastname" id="lastname" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="address1">Address #1</label>
+                <input type="text" name="address1" id="address1" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="address2">Address #2</label>
+                <input type="text" name="address2" id="address2" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="">City:</label>
+                <input type="text" name="city" id="city" />
+                <label class="container__label" for="">State:</label>
+                <input type="text" name="state" id="state" />
+                <label class="container__label" for="">Zip:</label>
+                <input type="text" name="zip" id="zip" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="">Country:</label>
+                <input type="text" name="country" id="country" value="United States" />
+            </div>
+            <hr>
+            <div class="container--item">
+                <label class="form__label" for="">Product:</label>
+                <select name="Product">
+                    <option>
+                        ScanMaster
+                    </option>
+                    <option>
+                        ScanMaster II
+                    </option>
+                    <option>
+                        LaserPrint 1000
+                    </option>
+                    <option>
+                        LaserPrint 5000
+                    </option>
+                    <option>
+                        Print/Scan 150
+                    </option>
+                    <option>
+                        Print/scan 250
+                    </option>
+                </select>
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="date_purchased">Date Purchased:</label><input type="text" name="date_purchased" id="date_purchased" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="">Serial #:</label>
+                <input type="text" name="serial" id="serial" />
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="">Used for:</label>
+
+                <div class="container--item__radio">
+                    <div>
+                        <input type="radio" name="home" id="home" />
+                        <label for="home">Home</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="education" id="education" />
+                        <label for="education">Educational Institution</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="business" id="business" checked />
+                        <label for="business">Business</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="other" id="other__radio" />
+                        <label for="other__radio">Other</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="government" id="government" />
+                        <label for="government">Government</label>
+                    </div>
+                </div>
+            </div>
+            <div class="container--item">
+                <label class="form__label" for="">System (check all that aplly):</label>
+                <div class="container--item__checkbox">
+                    <div>
+                        <input type="checkbox" name="windows" id="windows" />
+                        <label for="windows">Windows</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="unix" id="unix" />
+                        <label for="unix">UNIX</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="macintosh" id="macintosh" />
+                        <label for="macintosh">Macintosh</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="other" id="other__checkbox" />
+                        <label for="other__checkbox">Other</label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container--item">
+                <label class="form__label" for="comment">Comments?:</label>
+                <textarea rows="5" cols="60" name="comment" id="comment"></textarea>
+            </div>
+            <div class="container--item__button">
+                <button type="button" onclick="Register()">Click to register</button>
+                <button type="button" onclick="Cancel()">Click to cancel</button>
+            </div>
+        </main>
+    </form>
+</body>
+</html>
