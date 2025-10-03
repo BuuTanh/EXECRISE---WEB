@@ -1,0 +1,55 @@
+﻿body {
+    color: green;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    margin: 0 .5em;
+}
+.article {
+    float: right;
+    width: 40vw;
+    background-color: bisque;
+     border: 2px solid green;
+}
+
+h3, h1 {
+    color: brown;
+}
+
+#logo {
+    float: right;
+}
+
+ul {
+    list-style: url(images/Apple.jpg);
+}
+
+li > b {
+    color: rgb(212, 128, 45);
+}
+
+li {
+    color: green;
+}
+
+.special {
+    color: rgb(189, 85, 85);
+    font-weight: bold;
+}
+
+blockquote {
+    background-color: silver;
+}
+
+
+address {
+    font-size: 0.5em;
+    font-style: italic;
+    text-align: left;
+}
