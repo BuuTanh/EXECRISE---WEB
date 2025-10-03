@@ -1,0 +1,142 @@
+<html>
+<head>
+    <title>Ex49 - Trần Lê Bữu Tánh</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script>
+        var dateObj = new Date();
+        document.getElementById('startdate').value = dateObj.toISOString().slice(0, 10);
+        document.getElementById('enddate').value = dateObj.toISOString().slice(0, 10);
+
+        function Clear() {
+            document.getElementById("classifield").reset();
+        }
+
+        function Search() {
+            let a = document.getElementById('keywords').value;
+            let url = "https://www.google.com" + "/search?q=" + a
+            window.open(url, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes').focus();
+        }
+
+        function Help() {
+            window.open("https://support.google.com", '_blank').focus();
+        }
+    </script>
+</head>
+<body>
+    <form action="" id="classifield">
+        <header>
+            <h1>Online Classifieds Search Form</h1>
+        </header>
+        <hr />
+        <main>
+            <ol>
+                <li>
+                    Search for classified in the following sections:
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="radio"
+                                       name="type"
+                                       id="radio_1"
+                                       value="employment" />
+                                <label for="radio_1">Employment</label>
+                            </td>
+                            <td>
+                                <input type="radio"
+                                       name="type"
+                                       id="radio_2"
+                                       value="personal" />
+                                <label for="radio_2">Personal</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio"
+                                       name="type"
+                                       id="radio_3"
+                                       value="sale" />
+                                <label for="radio_3">For Sale</label>
+                            </td>
+                            <td>
+                                <input type="radio"
+                                       name="type"
+                                       id="radio_4"
+                                       value="miscellanecus" />
+                                <label for="radio_4">Miscellanecus</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio"
+                                       name="type"
+                                       id="radio_5"
+                                       value="housing" />
+                                <label for="radio_5">Housing</label>
+                            </td>
+                            <td>
+                                <input type="radio" name="type" id="radio_6" value="all" />
+                                <label for="radio_6">All of the above</label>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    Search the following publications:
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox"
+                                       name="checkbox_1"
+                                       id="checkbox_1" />
+                                <label for="checkbox_1">Midwest times</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="checkbox_2" id="checkbox_2" />
+                                <label for="checkbox_2">Modern News</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="checkbox_3" id="checkbox_3" />
+                                <label for="checkbox_3">Employment Today</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox"
+                                       name="checkbox_4"
+                                       id="checkbox_4" />
+                                <label for="checkbox_4">Great Lakes Classifieds</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="checkbox_5" id="checkbox_5" />
+                                <label for="checkbox_5">Middleton Daily</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" name="checkbox_6" id="checkbox_6" />
+                                <label for="checkbox_6">Cashtown Daily News</label>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    From
+                    <input type="date" name="startdate" id="startdate" />
+                    to
+                    <input type="date" name="enddate" id="enddate" />
+                </li>
+                <li>
+                    Enter a keyword to describe the classified
+                    <br />
+                    <input type="text" name="keywords" id="keywords" />
+                </li>
+                <li>
+                    Click one of the option below:
+                    <br />
+                    <button type="button" id="search" title="Search" alt="Search" onclick="Search()"></button>
+                    <button type="button" id="help" title="Help" alt="Help" onclick="Help()"></button>
+                    <button type="button" title="Cancel" id="Cancel" alt="Cancel" onclick="Clear()"></button>
+                </li>
+            </ol>
+        </main>
+    </form>
+</body>
+</html>

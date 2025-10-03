@@ -1,0 +1,74 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(205, 255, 255);
+}
+
+form {
+    width: 95%;
+    margin: 0 auto;
+}
+/* Header */
+h1 {
+    color: red;
+    margin: 1.5% 0;
+    font-size: 1.5em;
+}
+
+hr {
+    border: solid black;
+}
+/* Body */
+ol {
+    list-style-position: inside;
+}
+
+li {
+    list-style-type: none;
+    counter-increment: step-counter;
+    font-weight: bold;
+    margin: 2% 0;
+}
+
+    li::before {
+        content: counter(step-counter) ")";
+    }
+
+td > label {
+    font-size: medium;
+}
+
+#keywords {
+    width: 50vw;
+    height: auto;
+}
+
+#startdate, #enddate {
+    width: 15vw;
+    height: auto;
+    font-size: .5em;
+}
+
+#search {
+    background-image: url(images/Search.gif);
+}
+
+#help {
+    background-image: url(images/Help.gif);
+}
+
+#cancel {
+    background-image: url(images/Cancel.gif);
+}
+
+button {
+    width: 10vw;
+    height: 10vh;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-style: none;
+}
