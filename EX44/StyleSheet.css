@@ -1,0 +1,16 @@
+﻿header {
+    text-align:center;
+}
+
+.menu {
+    width: 40%;
+    background-color: rgb(184, 219, 124);
+    padding: 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align:center;
+    font-style:italic;
+    text-transform: uppercase;
+}
