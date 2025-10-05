@@ -1,0 +1,97 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(210, 247, 247);
+    padding: 1.5%;
+}
+
+img {
+    display: block;
+    margin: .5% auto;
+    width: 50vw;
+    height: auto;
+}
+
+h1 {
+    font-size: 6vw;
+    margin: .5% 0;
+}
+
+hr {
+    border-color: black;
+}
+
+ol {
+    list-style-position: inside;
+    font-size: 1.5vw;
+}
+
+li {
+    list-style-type: none;
+    counter-increment: step-counter;
+    margin: 2% 0;
+}
+
+    li::before {
+        content: counter(step-counter) ")";
+    }
+
+    li > textarea, li > input, li > select, p, button, td > input, td > select {
+        font-size: 1.5vw;
+    }
+
+textarea {
+    display: block;
+    width: 70%;
+    height: auto;
+    resize: none;
+}
+
+table, th, tr, td {
+    border: 1px black solid;
+    border-collapse: collapse;
+    font-size: 1.5vw;
+}
+
+td {
+    text-align: center;
+}
+
+.column_1 {
+    width: 15%;
+}
+
+.column_2 {
+    width: 50%;
+}
+
+.column_3 {
+    width: 20%;
+}
+
+.column_4 {
+    width: 15%;
+}
+
+.description {
+    width: 70%;
+    height: auto;
+}
+
+.amount {
+    width: 50%;
+    height: auto;
+}
+
+.date {
+    width: 70%;
+    height: auto;
+}
+
+#phone {
+    width: 10%;
+    height: auto;
+}

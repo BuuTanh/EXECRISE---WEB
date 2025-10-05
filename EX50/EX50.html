@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>
+        Ex50 - Trần Lê Bữu Tánh
+    </title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+</head>
+<body>
+    <img src="ex50/DeLong.jpg" alt="Logo" />
+    <h1>Travel Expense Report</h1>
+    <hr />
+    <form action="#" id="delong">
+        <ol type="1">
+            <li>
+                <label for="">First Name:</label>
+                <input type="text" />
+                <label for="">Last Name:</label>
+                <input type="text" />
+            </li>
+            <li>
+                <label for="">Social Security Number:</label>
+                <input type="text" pattern="\d*" maxlength="10" id="phone">
+            </li>
+            <li>
+                <label for="">Department:</label>
+                <select name="dept">
+                    <option>Accounting</option>
+                    <option>Advertising</option>
+                    <option>Consumer Relations</option>
+                    <option>Sales</option>
+                    <option>Management</option>
+                    <option>Payroll</option>
+                    <option>Quality Control</option>
+                    <option>R &amp; D</option>
+                </select>
+            </li>
+            <li>
+                <label for="">Describe the purpose of your trip.</label>
+                <textarea rows="5" placeholder="Enter description here (required)">
+            </textarea>
+            </li>
+            <li>
+                <label for="">Itemize your travel expenses</label>
+                <table>
+                    <colgroup>
+                        <col class="column_1">
+                        <col class="column_2">
+                        <col class="column_3">
+                        <col class="column_4">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" class="date" />
+                            </td>
+                            <td>
+                                <input class="description" />
+                            </td>
+                            <td>
+                                <select name="category">
+                                    <option>Meals</option>
+                                    <option>Miscellaneous</option>
+                                    <option>Registration</option>
+                                    <option>Transportation</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="amount" type="number" min="0" max="1000" value="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" class="date" />
+                            </td>
+                            <td>
+                                <input class="description" />
+                            </td>
+                            <td>
+                                <select name="category">
+                                    <option>Meals</option>
+                                    <option>Miscellaneous</option>
+                                    <option>Registration</option>
+                                    <option>Transportation</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="amount" type="number" min="0" max="1000" value="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" class="date" />
+                            </td>
+                            <td>
+                                <input class="description" />
+                            </td>
+                            <td>
+                                <select name="category">
+                                    <option>Meals</option>
+                                    <option>Miscellaneous</option>
+                                    <option>Registration</option>
+                                    <option>Transportation</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="amount" type="number" min="0" max="1000" value="0" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="date" class="date" />
+                            </td>
+                            <td>
+                                <input class="description" />
+                            </td>
+                            <td>
+                                <select name="category">
+                                    <option>Meals</option>
+                                    <option>Miscellaneous</option>
+                                    <option>Registration</option>
+                                    <option>Transportation</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input class="amount" type="number" min="0" max="1000" value="0" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <label for="">Have you submitted your receipts?</label>
+                <input type="radio" name="receipt" value="yes" />Yes
+                <input type="radio" name="receipt" value="no" />No
+            </li>
+        </ol>
+        <button type="button" onclick="Register()">Submit travel expenses</button>
+        <button type="button" onclick="Clear()">Reset</button>
+    </form>
+    <script>
+        function Register() {
+            alert("Submit successful");
+            document.getElementById("delong").reset();
+        }
+        function Clear() {
+            document.getElementById("delong").reset();
+        }
+    </script>
+    <p>Questions? Contact Debbie Larson in Accounting (ext. 2150).</p>
+</body>
+</html>
