@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Change Background - Trần Lê Bữu Tánh</title>
+    <script>
+      function change(value) {
+        const mydiv = document.getElementById("mydiv");
+        mydiv.style.backgroundColor = value;
+      }
+    </script>
+  </head>
+  <body>
+    <h3>Change background Color</h3>
+
+    <select id="mybackground" name="mybackground" onchange="change(this.value)">
+      <option value="blue">Xanh da trời</option>
+      <option value="red">Đỏ lè</option>
+      <option value="yellow">Vàng khè</option>
+    </select>
+    <br />
+    <br />
+    <div
+      id="mydiv"
+      style="width: 100%; height: 100px; background-color: rgb(163, 181, 220)"
+    ></div>
+  </body>
+</html>

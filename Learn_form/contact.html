@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title> My Contact - Trần Lê Bữu Tánh</title>
+        <script>
+            function save_contact()
+            {
+                name=mycontact.name.value;
+                email=mycontact.email.value;
+                gender=mycontact.gender.checked==true?"Woman":"Man"
+
+                // alert("name="+name)
+                // alert("email="+email)
+                // alert("gender="+gender)
+                
+
+                table_output_body=document.getElementById("table_output_tbody");
+                // row="<tr><td>"+name+"</td><td>"+email+"</td>
+                
+                var row;
+                if (gender=="Woman")
+                {
+                    row="<tr style='background-color:cyan'><td>"+name+"</td><td>"+email+"</td><td>"+gender+"</td></tr>";
+                }
+                else
+                {
+                    row="<tr style='background-color:yellow'><td>"+name+"</td><td>"+email+"</td><td>"+gender+"</td></tr>";
+                }
+                
+                table_output_body.innerHTML+=row;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="mycontact">
+            <table id="table_input">
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name" id="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" name="email" id="email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="checkbox" value="woman" name="gender" id="gender"/>
+                        <label for="gender">Is Woman</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="button" onclick="save_contact()">Save</button>
+                        <button type="reset">Clear</button>
+                    </td>
+                </tr>
+            </table>
+            <table id="table_output" border="1" style="margin-top: 10px; width: 100%;">
+                <caption>List of people</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody id="table_output_tbody">
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

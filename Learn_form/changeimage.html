@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Change Image - Trần Lê Bữu Tánh</title>
+    <script>
+      function hide_image() {
+        avatar = document.getElementById("avatar");
+        avatar.style = "display:none";
+      }
+      function show_image() {
+        avatar = document.getElementById("avatar");
+        avatar.style = "display:block";
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="radio" name="myimage" id="img1" onchange="show_image()" />
+      <label for="img1">Show Image</label>
+      <br />
+      <input type="radio" name="myimage" id="img2" onchange="hide_image()" />
+      <label for="img2">Hide Image</label>
+      <br />
+      <img
+        src="images/OIP.jpg"
+        name="avatar"
+        id="avatar"
+        style="display: block"
+      />
+    </form>
+  </body>
+</html>

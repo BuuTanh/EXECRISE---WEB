@@ -3,40 +3,58 @@
         <title>
             Login - Trần Lê Bữu Tánh
         </title>
+        <script>
+            function open_is()
+            {
+                //alert("Bạn muốn mở website của khoa HTTT hả?")
+                window.open("https://is.uel.edu.vn","_blank")
+            }
+        </script>
     </head>
     <body>
         <form name="frm_login"
             action = "https://is.uel.edu.vn"
             method = "get" 
             >
-            <table>
-                <tr>
-                    <td> User name:</td>
-                    <td>
-                        <input type="text" name ="username" id="username"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td> Password:</td>
-                    <td>
-                        <input type="password" name ="matkhau" id="matkhau"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <input type="checkbox" name="save" id="save"/>Save password</input>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        <button type="submit">Login</button>
-                        <button type="reset">Reset</button>
-                    </td>
-                </tr>
-            </table>
+            <fieldset>
+                <legend>Login HR System</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="user name">
+                                User Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" name ="username" id="username"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Password:</td>
+                        <td>
+                            <input type="password" name ="matkhau" id="matkhau"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="checkbox" name="save" id="save"/>
+                            <label for="save">
+                                Save Login infor
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <button type="submit">Login</button>
+                            <button type="reset">Reset</button>
+                            <button type="button" onclik ="open_is()">Open IS Website</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
     </body>
 </html>
