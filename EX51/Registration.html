@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title> Registration - Trần Lê Bữu Tánh </title>
+    <link rel="stylesheet" href="StyleSheet.css">
+</head>
+<body>
+    <img src="images/Logo.gif" alt="Logo">
+    <h1>Newborn Registration</h1>
+    <form action="#" id="registration">
+        Date:
+        <input type="date" name="" id="">
+        <ol>
+            <li>
+                Infant's first name:
+                <input type="text" name="" id="">
+                Last:
+                <input type="text" name="" id="">
+            </li>
+            <li>
+                Medical Record #:
+                <input type="text" name="" id="medicalrecord">
+            </li>
+            <li>
+                Date of birth:
+                <input type="date" name="" id="">
+            </li>
+            <li>
+                Birth weight:
+                <input type="text" name="" id="birthweight">
+            </li>
+            <li>
+                APGAR score:
+                <input type="text" name="" id="apgar">
+            </li>
+            <li>
+                Mother's first name:
+                <input type="text" name="" id="">
+                Last:
+                <input type="text" name="" id="">
+            </li>
+            <li>
+                Father's first name:
+                <input type="text" name="" id="">
+                Last:
+                <input type="text" name="" id="">
+            </li>
+            <li>
+                Physician (check all that apply:)
+                <select name="doctor" size="4">
+                    <option>
+                        Dr. Warren Albert
+                    </option>
+                    <option>
+                        Dr. Maria Alvarez
+                    </option>
+                    <option>
+                        Dr. Karen Brinkman
+                    </option>
+                    <option>
+                        Dr. Michael Kerry
+                    </option>
+                    <option>
+                        Dr. William Tran
+                    </option>
+                    <option>
+                        Dr. Hillen Jayson
+                    </option>
+                    <option>
+                        Other 
+                    </option>
+                </select>
+            </li>
+        </ol>
+        <div>
+            <button type="button" onclick="Register()">Register</button>
+            <button type="button" onclick="Clear()">Cancel</button>
+        </div>
+    </form>
+    <script>
+        function Register() {
+            alert("Submit successful");
+            document.getElementById("registration").reset();
+        }
+        function Clear() {
+            document.getElementById("registration").reset();
+        }
+    </script>
+</body>
+</html>
