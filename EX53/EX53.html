@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>EX53 - Trần Lê Bữu Tánh</title>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 90%;
+            height: auto;
+            border: 2px solid rgb(0, 0, 0);
+        }
+
+        table {
+            width: 100%;
+            height: auto;
+        }
+
+        td {
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        td input {
+            font-size: 1rem;
+            width: 90%;
+            display: inline-block;
+        }
+
+        td.special {
+            text-align: right;
+        }
+
+        .footer {
+            text-align: right;
+        }
+
+        .footer input {
+            font-size: 1.25rem;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <form action="action.html" method="get" id="main" name="main">
+        <table>
+            <tr>
+                <th>Part Number</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Item total</th>
+            </tr>
+            <tr>
+                <td>C112</td>
+                <td>Mouse</td>
+                <td id="price_1">19.95</td>
+                <td>
+                    <input class="quantity" type="number" id="quantity_1" name="Quantity_1" />
+                </td>
+                <td class="special">
+                    <input type="text" id="item_1" name="Item_1" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>B124</td>
+                <td>Keyboard US</td>
+                <td id="price_2">29.95</td>
+                <td>
+                    <input class="quantity" type="number" id="quantity_2" name="Quantity_2" />
+                </td>
+                <td class="special">
+                    <input type="text" id="item_2" name="Item_2" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>U125</td>
+                <td>USB KingMax</td>
+                <td id="price_3">39.95</td>
+                <td>
+                    <input class="quantity" type="number" id="quantity_3" name="Quantity_3" />
+                </td>
+                <td class="special">
+                    <input type="text" id="item_3" name="Item_3" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="footer">
+                    Total
+                </td>
+                <td class="special">
+                    <input id="total" type="text" name="Total" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="footer">
+                    <input type="submit" value="Sum" onclick="getTotal()" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function getTotal() {
+            const prices = [19.95, 29.95, 39.95];
+            const qty1 = parseInt(document.getElementById("quantity_1").value) || 0;
+            const qty2 = parseInt(document.getElementById("quantity_2").value) || 0;
+            const qty3 = parseInt(document.getElementById("quantity_3").value) || 0;
+
+            const item1Total = qty1 * prices[0];
+            const item2Total = qty2 * prices[1];
+            const item3Total = qty3 * prices[2];
+
+
+            document.getElementById("item_1").value = item1Total.toFixed(2);
+            document.getElementById("item_2").value = item2Total.toFixed(2);
+            document.getElementById("item_3").value = item3Total.toFixed(2);
+
+
+            const totalPrice = item1Total + item2Total + item3Total;
+
+            document.getElementById("total").value = totalPrice.toFixed(2);
+        }
+    </script>
+</body>
+</html>
