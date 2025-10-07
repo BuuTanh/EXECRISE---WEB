@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>Contact GET - Trần Lê Bữu Tánh</title>
+    <style>
+        input, select, textarea {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form action="action.html" method="get" id="main" name="main">
+        <table>
+            <tr>
+                <td colspan="2" cols="30">
+                    <label for="FullName">Full name</label>
+                    <input type="text" name="FullName" id="FullName" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" required />
+                </td>
+                <td>
+                    <label for="to" style="margin-left: 9px">Send to</label>
+                    <select name="to" id="to" style="margin-left:10px">
+                        <option value="Editorial board">Editorial board</option>
+                        <option value="News">News Department</option>
+                        <option value="Board">Board of Perspectives</option>
+                        <option value="World">World Board</option>
+                        <option value="Business">Business Department</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" required />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="content">Content:</label>
+                    <textarea name="content"
+                              id="content" ;
+                              cols="30"
+                              rows="10"
+                              style="text-align:left">
+                    </textarea>
+                </td>
+            </tr>
+        </table>
+        <div id="footer">
+            <input class="button" type="submit" value="Send" style="background-color:purple; color:white; width:80px" />
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title> Action - Trần Lê Bữu Tánh</title>
+    <script>
+      function get_query() {
+        let url = document.location.href;
+        let qs = url.substring(url.indexOf("?") + 1).split("&");
+        let i = 0,
+          result = {};
+        for (; i < qs.length; i++) {
+          qs[i] = qs[i].split("=");
+          result[qs[i][0]] = decodeURIComponent(
+            (qs[i][1] + "").replace(/\+/g, "%20")
+          );
+        }
+        return result;
+      }
+    </script>
+</head>
+<body>
+    <p id="FullName">Full name</p>
+    <p id="email">Email</p>
+    <p id="to">Send to</p>
+    <p id="title">Title</p>
+    <p id="content">Content</p>
+
+    <script>
+      var result = get_query();
+      document.getElementById("FullName").innerHTML += result.FullName;
+      document.getElementById("email").innerHTML += result.email;
+      document.getElementById("title").innerHTML += result.title;
+      if (result.to == "Editorial board") {
+          document.getElementById("to").innerHTML += "Editorial board";
+      }
+      else if (result.to == "News") {
+          document.getElementById("to").innerHTML += "News Department";
+      }
+      else if (result.to == "Board") {
+          document.getElementById("to").innerHTML += "Board of Perspectives";
+      }
+      else if (result.to == "World") {
+          document.getElementById("to").innerHTML += "World Board";
+      }
+      else {
+          document.getElementById("to").innerHTML += "Business Department";
+      }
+      document.getElementById("content").innerHTML += result.content;
+    </script>
+</body>
+</html>
