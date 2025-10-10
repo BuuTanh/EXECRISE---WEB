@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>EX55 - Trần Lê Bữu Tánh</title>
+    <style>
+        #title {
+            text-align:center;
+            background-color: rgb(166, 255, 157);
+        }
+        #hs {
+            width: 35%;
+        }
+    </style>
+    <script src="./function.js">
+    </script>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <tr>
+                <td colspan="2" id="title">The quadratic equation</td>
+            </tr>
+            <tr>
+                <td id="hs"><input value="a:" /></td>
+                <td><input type="number" id="firstNumber" /></td>
+            </tr>
+            <tr>
+                <td id="hs"><input value="b:" /></td>
+                <td><input type="number" id="secondNumber" /></td>
+            </tr>
+            <tr>
+                <td id="hs"><input value="c:" /></td>
+                <td><input type="number" id="thirdNumber" /></td>
+            </tr>
+            <tr>
+                <td id="hs"><input value="Result:"/></td>
+                <td><input id="result" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="Process()">Find Solution</button>
+                    <button type="reset">Clear</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
