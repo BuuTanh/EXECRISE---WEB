@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>
+            Optimizization string - Trần Lê Bữu Tánh
+        </title>
+        <script>
+            function process_optimization()
+            {
+                
+                var inputText = my_form.name_input.value.toLowerCase();
+                var words = inputText.split(' ');
+                for (var i = 0; i < words.length; i++)
+                {
+                    if (words[i].length > 0)
+                    {
+                        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+                    }
+                }
+                name_output.innerText = words.join(' ');
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <table>
+                <tr>
+                    <td>Input:</td>
+                    <td><input type="text" name="name_input" id="name_input" oninput="process_optimization()"/></td>
+                </td>
+                </tr>
+                <tr>
+                    <td>Ouput:</td>
+                    <td id="name_output"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

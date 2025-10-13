@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>
+            indexOf, lastIndexOf, substring - Trần Lê Bữu Tánh
+        </title>
+        <script>
+            function process_string()
+            {
+                str=my_form.input_str.value
+                p1=str.indexOf(";")
+                //alert(p1)
+                p2=str.lastIndexOf(";")
+                //alert(p2)
+                out_name=str.substring(p1+1,p2)
+                td_name.innerText=out_name
+                out_id=str.substring(0,p1-1)
+                td_id.innerText=out_id
+                out_price=str.substring(p2+1)
+                td_price.innerText=out_price
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <table>
+                <tr>
+                    <td>Input string:</td>
+                    <td>
+                        <input type="text" name="input_str" id="input_str" value="P01;Banana;15">
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="button" onclick="process_string()">Process</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ID:</td>
+                    <td id="td_id"></td>
+                </tr>
+                <tr>
+                    <td>NAME:</td>
+                    <td id="td_name"></td>
+                </tr>
+                <tr>
+                    <td>PRICE:</td>
+                    <td id="td_price"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

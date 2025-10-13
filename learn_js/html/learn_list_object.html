@@ -1,0 +1,46 @@
+<html>
+    <head
+        <title>
+            Learn List Object - Trần Lê Bữu Tánh
+        </title>
+        <script type="text/javascript">
+            var arr_products=[
+                {Id:"P01",Name:"Coca",Quantity:"25"},
+                {Id:"P02",Name:"Pepsi",Quantity:"30"},
+                {Id:"P03",Name:"7up",Quantity:"15"},
+            ] 
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody id="my_tbody">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            //alert(arr_products.length)
+            my_tbody.innerHTML=""
+            for(i=0;i<arr_products.length;i++)
+            {
+                item=arr_products[i]
+                row="<tr>"+
+                    "<td>"+item.Id+"</td>"+
+                    "<td>"+item.Name+"</td>"+
+                    "<td>"+item.Quantity+"</td>"+
+                    "</tr>"
+                my_tbody.innerHTML+=row
+            }
+        </script>
+    </body>
+</html>
