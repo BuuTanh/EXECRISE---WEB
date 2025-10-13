@@ -1,0 +1,77 @@
+<html>
+<html>
+<head>
+    <title>Exercise 56: String processing - Trần Lê Bữu Tánh</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        caption {
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px;
+        }
+        textarea {
+            width: 250px;
+            height: 100px;
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+    </style>
+    <script src="./ex56.js"></script>
+</head>
+<body>
+    <form>
+        <table border="1">
+            <caption>Using String Processing functions</caption>
+            <tr>
+                <td>
+                    <b>Input Data:</b><br>
+                    <textarea id="inputData"></textarea>
+                </td>
+                <td>
+                    <b>Result:</b><br>
+                    <textarea id="resultData" readonly></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="enterData()">Enter Data</button></td>
+                <td><button type="button" onclick="countUppercase()">Count the number of uppercase characters</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="displayUppercase()">Uppercase display</button></td>
+                <td><button type="button" onclick="outputOneWordPerLine()">Output one word per line</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="displayLowercase()">lowercase display</button></td>
+                <td><button type="button" onclick="countWords()">Word count</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="countLowercase()">Count the number of lowercase characters</button></td>
+                <td><button type="button" onclick="printVowelsConsonants()">print vowels, consonants</button></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" onclick="openW3C()">W3C's String Processing Website</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
