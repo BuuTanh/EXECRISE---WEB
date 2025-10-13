@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>
+            Learn Dom 1 - Trần Lê Bữu Tánh
+        </title>
+        <script type="text/javascript">
+            function create_p_tag()
+            {
+                my_div=document.getElementById("my_div")
+                //create p tag:
+                p=document.createElement("p")
+                p.innerText=new Date().toLocaleTimeString()
+                my_div.appendChild(p)
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="create_p_tag()">
+            Create P
+        </button>
+
+        <div id="my_div" style="overflow-y: scroll;height:300;">
+        </div>
+        <script>
+            setInterval(create_p_tag,1000)
+        </script>   
+    </body>
+</html>

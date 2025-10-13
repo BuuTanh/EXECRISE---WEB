@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>
+            Dom 2 - Trần Lê Bữu Tánh
+        </title>
+    </head>
+    <body>
+        <form name="my_form">
+            <fieldset>
+                <legend>Customer Information:</legend>
+                <table>
+                    <tr>
+                        <td>Customer Name:</td>
+                        <td><input type="text" name="customer_name" id="customer_name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Customer Age:</td>
+                        <td><input type="number" name="customer_age" id="customer_age"/></td>
+                    </tr>
+                </table>
+            </fieldset>   
+            <button type="button" onclick="process_save_customer()">Save Customer</button> 
+        </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Customer Name:</th>
+                    <th>Customer Age:</th>
+                </tr>
+            </thead>
+            <tbody id="customer_tbody">
+
+            </tbody>
+        </table>
+        <script>
+            function process_save_customer()
+            {
+                //step1: get customer_tbody
+                customer_tbody=document.getElementById("customer_tbody")
+                //step2: create <tr><td></td><td></td></tr>
+                //step 2.1: create tr:
+                tr=document.createElement("tr")
+                //step 2.2: create td(name)
+                td_name=document.createElement("td")
+                td_name.innerText=my_form.customer_name.value
+                tr.appendChild(td_name)
+                //step 2.3: create td(age)
+                td_age=document.createElement("td")
+                td_age.innerText=my_form.customer_age.value
+                tr.appendChild(td_age)
+                //step 3: append tr into tbody:
+                customer_tbody.appendChild(tr)
+            }
+        </script>
+    </body>
+</html>
