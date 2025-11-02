@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bản tin VnExpress - TLBT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #1a1a2e;
+        --card-bg-color: #1f2840;
+        --primary-text-color: #e0e0e0;
+        --secondary-text-color: #a0a0b0;
+        --accent-color: #00c2ff;
+        --border-color: #33415c;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--primary-text-color);
+        line-height: 1.6;
+      }
+
+      .page-header {
+        background-color: var(--card-bg-color);
+        text-align: center;
+        padding: 2rem 1rem;
+        border-bottom: 2px solid var(--accent-color);
+        margin-bottom: 2rem;
+      }
+
+      .page-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--accent-color);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .articles-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      #articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      .status-message {
+        font-size: 1.2rem;
+        color: var(--secondary-text-color);
+      }
+
+      .article-card {
+        background-color: var(--card-bg-color);
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      .article-card:hover {
+        transform: scale(1.03);
+        border-color: var(--accent-color);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-body {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .card-title-link {
+        text-decoration: none;
+        color: var(--primary-text-color);
+        transition: color 0.2s;
+      }
+
+      .card-title-link:hover {
+        color: var(--accent-color);
+      }
+
+      .card-summary {
+        font-size: 0.9rem;
+        color: var(--secondary-text-color);
+        margin-bottom: 1rem;
+        flex-grow: 1;
+      }
+
+      .card-timestamp {
+        font-size: 0.8rem;
+        color: var(--accent-color);
+        align-self: flex-start;
+      }
+
+      .page-footer {
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        color: var(--secondary-text-color);
+        background-color: #111;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="page-header">
+      <h1 class="page-title">Bản tin Thể thao 24/7</h1>
+    </header>
+
+    <main class="articles-container">
+      <div id="articles-grid">
+        <p class="status-message">Đang lấy tin, vui lòng chờ...</p>
+      </div>
+    </main>
+    
+    <footer class="page-footer">
+        <p>Nguồn cấp tin bởi VnExpress.net</p>
+    </footer>
+
+    <script>
+      const fetchVnExpressSportsNews = async () => {
+        const gridContainer = document.getElementById("articles-grid");
+        const rssFeedUrl = "https://vnexpress.net/rss/the-thao.rss";
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssFeedUrl)}`;
+
+        try {
+          const response = await fetch(proxyUrl);
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`);
+          }
+          const xmlString = await response.text();
+          
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(xmlString, "application/xml");
+          const articles = doc.querySelectorAll("item");
+          
+          gridContainer.innerHTML = "";
+
+          articles.forEach((article) => {
+            const title = article.querySelector("title")?.textContent || "Không có tiêu đề";
+            const link = article.querySelector("link")?.textContent || "#";
+            const rawDescription = article.querySelector("description")?.textContent || "";
+            const pubDate = article.querySelector("pubDate")?.textContent || new Date().toISOString();
+            const imageUrl = article.querySelector("enclosure")?.getAttribute("url") || 'https://via.placeholder.com/400x225.png?text=No+Image';
+
+            const cleanDescription = rawDescription.replace(/<[^>]*>?/gm, "");
+            const formattedDate = new Date(pubDate).toLocaleString("vi-VN", {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+
+            const articleHtml = `
+              <article class="article-card">
+                <img src="${imageUrl}" alt="Hình ảnh tin tức" class="card-image">
+                <div class="card-body">
+                  <h2 class="card-title">
+                    <a href="${link}" target="_blank" rel="noopener noreferrer" class="card-title-link">${title}</a>
+                  </h2>
+                  <p class="card-summary">${cleanDescription.substring(0, 150)}...</p>
+                  <time class="card-timestamp">${formattedDate}</time>
+                </div>
+              </article>
+            `;
+            gridContainer.insertAdjacentHTML('beforeend', articleHtml);
+          });
+          
+        } catch (error) {
+          console.error("Failed to fetch RSS feed:", error);
+          gridContainer.innerHTML = `<p class="status-message">Đã xảy ra lỗi khi tải dữ liệu. Vui lòng thử lại sau.</p>`;
+        }
+      };
+
+      document.addEventListener("DOMContentLoaded", fetchVnExpressSportsNews);
+    </script>
+  </body>
+</html>
