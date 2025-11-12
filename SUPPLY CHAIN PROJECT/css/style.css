@@ -1,0 +1,1088 @@
+/* css/style.css */
+
+/* --- CÀI ĐẶT BIẾN VÀ FONT CHỮ --- */
+:root {
+    --bg-color: #f4f7fa;
+    --surface-color: #ffffff;
+    --primary-color: #0052cc;
+    --primary-light-color: #e6f0ff;
+    --text-primary-color: #172b4d;
+    --text-secondary-color: #5e6c84;
+    --border-color: #dfe1e6;
+    --shadow-color: rgba(9, 30, 66, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary-color);
+    font-size: 14px;
+}
+
+/* --- BỐ CỤC CHÍNH BẰNG CSS GRID --- */
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 280px 1fr 320px;
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-areas:
+        "header header header"
+        "sidebar-left main-content sidebar-right"
+        "footer footer footer";
+    gap: 16px;
+    padding: 16px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar-left {
+    grid-area: sidebar-left;
+}
+
+.main-content {
+    grid-area: main-content;
+}
+
+.sidebar-right {
+    grid-area: sidebar-right;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* --- ĐỊNH DẠNG CÁC KHỐI --- */
+.header,
+.sidebar-left,
+.main-content,
+.sidebar-right {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-left,
+.main-content,
+.sidebar-right {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-left h3,
+.main-content h2,
+.sidebar-right h3 {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 16px;
+    color: var(--text-primary-color);
+}
+
+#weather-container,
+#rss-container,
+#ai-alerts-container {
+    padding: 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--text-secondary-color);
+}
+
+/* --- HEADER & MENU --- */
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.main-menu .menu-link {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--text-secondary-color);
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.main-menu .menu-link:hover {
+    background-color: var(--primary-light-color);
+    color: var(--primary-color);
+}
+
+.main-menu .menu-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- NỘI DUNG CHÍNH (RSS) --- */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    /* Chỉ padding ngang */
+    min-height: 60px;
+}
+
+.content-header h2 {
+    border-bottom: none;
+    padding: 0;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-controls label {
+    font-weight: 500;
+}
+
+.filter-controls select,
+.filter-controls button {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--surface-color);
+}
+
+.filter-controls button {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.filter-controls button:hover {
+    background-color: #f4f5f7;
+}
+
+/* --- ĐỊNH DẠNG TIN TỨC (RSS ITEM) --- */
+#rss-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rss-item {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 12px;
+    transition: box-shadow 0.2s ease;
+}
+
+.rss-item:hover {
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.rss-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rss-category {
+    background-color: var(--primary-light-color);
+    color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.rss-pubdate {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+}
+
+.rss-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.rss-title a {
+    text-decoration: none;
+    color: var(--text-primary-color);
+}
+
+.rss-title a:hover {
+    color: var(--primary-color);
+}
+
+/* --- ĐỊNH DẠNG THỜI TIẾT --- */
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.weather-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.weather-card:last-child {
+    border-bottom: none;
+}
+
+.weather-icon img {
+    width: 48px;
+    height: 48px;
+}
+
+.weather-info {
+    flex-grow: 1;
+}
+
+.weather-info h4 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.weather-info .description {
+    color: var(--text-secondary-color);
+}
+
+.weather-temp {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* --- TIỆN ÍCH --- */
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.placeholder-text {
+    color: var(--text-secondary-color);
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG CHO SIDEBAR --- */
+.sidebar-filter {
+    padding: 0 16px 16px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-filter select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--surface-color);
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG WIDGET THỜI TIẾT TỔNG QUAN Ở SIDEBAR (PHIÊN BẢN MỚI) --- */
+
+#weather-overview-container {
+    padding: 16px;
+    background: linear-gradient(180deg, #4a90e2 0%, #0052cc 100%);
+    color: white;
+    border-radius: 0 0 8px 8px;
+    /* Bo tròn góc dưới cho khớp với thẻ cha */
+    flex-grow: 1;
+    /* Cho phép nó lấp đầy không gian còn lại */
+}
+
+.overview-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.overview-weather-location {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.overview-weather-date {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.overview-weather-main {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+}
+
+.overview-weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.overview-weather-temp {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    margin-left: 8px;
+    position: relative;
+}
+
+.overview-weather-temp span {
+    font-size: 24px;
+    font-weight: 400;
+    position: absolute;
+    top: 4px;
+    right: -20px;
+}
+
+.overview-weather-desc {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.overview-weather-range {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: auto;
+    /* Đẩy phần details xuống dưới cùng */
+}
+
+.overview-weather-details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-item .detail-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 4px;
+}
+
+.detail-item .detail-value {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG CẢNH BÁO RỦI RO --- */
+
+/* Highlight tin tức rủi ro trong danh sách chính */
+.rss-item.risk-detected {
+    border-left: 4px solid #de350b;
+    /* Màu đỏ cảnh báo */
+    background-color: #ffebe6;
+}
+
+/* Định dạng thẻ cảnh báo ở sidebar phải */
+#ai-alerts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alert-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid #de350b;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.alert-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary-color);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.alert-title a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-primary-color);
+}
+
+.alert-title a:hover {
+    color: var(--primary-color);
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG TRẠNG THÁI PHÂN TÍCH AI --- */
+.ai-status-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: #ccc;
+    /* Màu xám: Chưa phân tích */
+    transition: background-color 0.3s ease;
+}
+
+.ai-status-analyzed {
+    background-color: #0065ff;
+    /* Màu xanh: Đã phân tích, không rủi ro */
+}
+
+/* Class 'risk-detected' sẽ ghi đè màu nền của icon */
+.risk-detected .ai-status-icon {
+    background-color: #de350b;
+    /* Màu đỏ: Phát hiện rủi ro */
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG SIDEBAR PHẢI NÂNG CẤP --- */
+.ai-controls {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 16px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ai-controls button {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--surface-color);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.ai-controls button:hover {
+    background-color: #f4f5f7;
+}
+
+#ai-clear-btn {
+    color: #c82333;
+    border-color: #c82333;
+}
+
+#ai-clear-btn:hover {
+    background-color: #ffebe6;
+}
+
+/* --- ĐOẠN CODE MỚI ĐÃ CHỈNH SỬA --- */
+.ai-chat-box {
+    /* Xóa margin-top: auto; để flexbox tự chia không gian */
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.ai-chat-box h4 {
+    margin: 0 0 8px 0;
+}
+
+.chat-messages {
+    height: 300px;
+    /* << TĂNG CHIỀU CAO LÊN 150PX */
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.chat-input button {
+    padding: 8px 16px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input input:disabled,
+.chat-input button:disabled {
+    background-color: #f4f5f7;
+    cursor: not-allowed;
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG HỘP CHAT AI --- */
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    /* Đẩy tin nhắn người dùng sang phải */
+}
+
+.chat-message.assistant {
+    background-color: #f4f5f7;
+    color: var(--text-primary-color);
+    border-bottom-left-radius: 4px;
+    margin-right: auto;
+    /* Đẩy tin nhắn AI sang trái */
+}
+
+.chat-message.assistant.loading {
+    font-style: italic;
+    color: var(--text-secondary-color);
+}
+
+
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG TRANG NHÀ CUNG CẤP --- */
+
+/* Bảng dữ liệu chung */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f4f5f7;
+    font-weight: 700;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--primary-light-color);
+}
+
+/* Nút hành động trong bảng */
+.action-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+/* Huy hiệu trạng thái và rủi ro */
+.status-badge,
+.risk-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+}
+
+.status-badge.active {
+    background-color: #00875a;
+}
+
+/* Xanh lá */
+.status-badge.warning {
+    background-color: #ffab00;
+}
+
+/* Vàng */
+.status-badge.critical {
+    background-color: #de350b;
+}
+
+/* Đỏ */
+
+.risk-badge.low {
+    background-color: #00875a;
+}
+
+/* Xanh lá */
+.risk-badge.medium {
+    background-color: #ffab00;
+}
+
+/* Vàng */
+.risk-badge.high {
+    background-color: #de350b;
+}
+
+/* Đỏ */
+.risk-badge.unknown {
+    background-color: #6c757d;
+}
+
+/* Xám */
+
+/* Giao diện xem chi tiết */
+#back-to-list-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#back-to-list-btn:hover {
+    background-color: #f4f5f7;
+}
+
+.details-container {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.details-card {
+    background-color: #fafbfc;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.details-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.details-card p {
+    margin: 8px 0;
+}
+
+.details-card ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.details-card li {
+    margin-bottom: 4px;
+}
+
+/* Thêm vào cuối file css/style.css */
+
+.details-card.full-width {
+    grid-column: 1 / -1;
+    /* Thẻ này sẽ chiếm toàn bộ các cột */
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG TRANG ALERTS --- */
+.alerts-page-container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.alert-page-item {
+    border: 1px solid var(--border-color);
+    border-left: 4px solid #de350b;
+    /* Màu đỏ cảnh báo */
+    background-color: #ffebe6;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.alert-page-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.alert-page-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.alert-page-item-title a {
+    text-decoration: none;
+    color: var(--text-primary-color);
+}
+
+.alert-page-item-title a:hover {
+    color: var(--primary-color);
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- ĐỊNH DẠNG NÂNG CAO CHO TRANG ALERTS --- */
+
+/* Biểu đồ giả lập */
+.dashboard-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 16px 16px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chart-card {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.chart-card h4 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.chart-placeholder {
+    padding-top: 16px;
+    font-size: 14px;
+}
+
+.chart-placeholder p {
+    margin: 4px 0;
+}
+
+#severity-chart p:first-child {
+    color: #de350b;
+    font-weight: 700;
+}
+
+#severity-chart p:nth-child(2) {
+    color: #ffab00;
+    font-weight: 700;
+}
+
+#severity-chart p:nth-child(3) {
+    color: #00875a;
+    font-weight: 700;
+}
+
+/* Thẻ cảnh báo chi tiết */
+.alert-page-item {
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.alert-page-item.severity-high {
+    border-left: 4px solid #de350b;
+    background-color: #ffebe6;
+}
+
+.alert-page-item.severity-medium {
+    border-left: 4px solid #ffab00;
+    background-color: #fff0b3;
+}
+
+.alert-page-item.severity-low {
+    border-left: 4px solid #00875a;
+    background-color: #e6fffa;
+}
+
+.alert-analysis {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 13px;
+}
+
+.alert-analysis p {
+    margin: 6px 0;
+}
+
+/* --- TRANG CHI TIẾT CẢNH BÁO --- */
+.alert-detail-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* 2 cột, cột trái rộng hơn */
+    gap: 16px;
+    padding: 16px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.alert-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.alert-detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.alert-page-item.clickable,
+.alert-card.clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alert-page-item.clickable:hover,
+.alert-card.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.details-card textarea {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+/* THAY THẾ TOÀN BỘ KHỐI NÀY */
+/* --- Biểu đồ thanh ngang --- */
+.bar-chart {
+    position: relative;
+    padding-top: 10px;
+    /* Thêm padding-bottom để có không gian cho nhãn */
+    padding-bottom: 20px;
+}
+
+.bar-label {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+}
+
+.bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin-top: 4px;
+    position: relative;
+    /* Đặt làm gốc cho các phần tử con */
+}
+
+.bar-value {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.bar-safety-line {
+    position: absolute;
+    top: -4px;
+    /* Dịch lên trên một chút */
+    bottom: -4px;
+    /* Dịch xuống dưới một chút */
+    border-left: 2px dashed #de350b;
+}
+
+.bar-safety-label {
+    position: absolute;
+    bottom: 0px;
+    right: 90px;
+    /* Đặt vị trí ngay dưới thanh bar */
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: #de350b;
+    font-weight: 700;
+    /* Thêm thuộc tính này để tránh chữ bị ngắt dòng */
+    white-space: nowrap;
+}
+
+/* Biểu đồ số liệu lớn */
+.metric-display {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.metric-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.metric-unit {
+    font-size: 18px;
+    color: var(--text-secondary-color);
+    margin-left: 8px;
+}
+
+/* Thêm vào cuối file css/style.css */
+
+/* --- GIAO DIỆN TRANG TỔNG QUAN MỚI --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cột cho các card nhỏ */
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.summary-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    line-height: 1;
+}
+.card-icon.critical { background-color: #ffebe6; } /* Màu nền cho icon đỏ */
+.card-icon.high { background-color: #ffebe6; }
+.card-icon.medium { background-color: #fff0b3; }
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+}
+
+.card-label {
+    font-size: 14px;
+    color: var(--text-secondary-color);
+    font-weight: 500;
+}
+
+/* Định dạng cho thẻ cảnh báo nổi bật */
+.featured-alert {
+    grid-column: 1 / -1; /* Chiếm toàn bộ 3 cột */
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.featured-alert .card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+.featured-alert .card-header h4 {
+    margin: 0;
+}
+.featured-alert .featured-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+.featured-alert .featured-summary {
+    font-size: 14px;
+    color: var(--text-secondary-color);
+    margin: 0 0 16px 0;
+    flex-grow: 1;
+}

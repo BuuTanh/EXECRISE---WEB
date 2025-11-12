@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Risk Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- PHẦN HEADER VÀ MENU CHÍNH -->
+        <header class="header">
+            <div class="logo">📡 SCM Dashboard</div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="#" class="menu-link active" data-content="rss">News</a></li>
+                    <li><a href="#" class="menu-link" data-content="weather">Weather Details</a></li>
+                    <li><a href="#" class="menu-link" data-content="suppliers">Suppliers</a></li>
+                    <!-- DÒNG MỚI ĐƯỢC THÊM -->
+                    <li><a href="#" class="menu-link" data-content="alerts">Alerts</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- PHẦN SIDEBAR TRÁI - HIỂN THỊ TÓM TẮT THỜI TIẾT -->
+        <aside class="sidebar-left">
+            <h3>☀️ Weather Overview</h3>
+
+            <!-- Dropdown để chọn địa điểm -->
+            <div class="sidebar-filter">
+                <select id="overview-location-select">
+                    <!-- Các địa điểm sẽ được JS chèn vào đây -->
+                </select>
+            </div>
+
+            <!-- Container để hiển thị kết quả thời tiết -->
+            <div id="weather-overview-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </aside>
+
+        <!-- PHẦN NỘI DUNG CHÍNH -->
+        <main class="main-content" id="main-content-container">
+            <!-- Nội dung động (RSS, Chi tiết thời tiết...) sẽ được JS chèn vào đây -->
+            <div class="loading-spinner"></div>
+        </main>
+
+        <!-- PHẦN SIDEBAR PHẢI -->
+        <!-- PHẦN SIDEBAR PHẢI - ĐÃ NÂNG CẤP -->
+        <aside class="sidebar-right">
+            <h3>🤖 AI Risk Intelligence</h3>
+
+            <!-- Các nút điều khiển -->
+            <div class="ai-controls">
+                <button id="ai-rescan-btn">Rescan News</button>
+                <button id="ai-clear-btn">Clear Alerts</button>
+            </div>
+
+            <!-- Container cho các thẻ cảnh báo -->
+            <div id="ai-alerts-container">
+                <p class="placeholder-text">AI analysis will appear here...</p>
+            </div>
+
+            <!-- Hộp chat (sẽ làm sau) -->
+            <div class="ai-chat-box">
+                <h4>Chat with AI</h4>
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Các tin nhắn sẽ được JS chèn vào đây -->
+                    <p class="placeholder-text">Ask a question about supply chain risks...</p>
+                </div>
+                <form class="chat-input" id="chat-form">
+                    <input type="text" id="chat-input-text" placeholder="e.g., Any logistics issues?">
+                    <button type="submit" id="chat-send-btn">Send</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- PHẦN FOOTER -->
+        <footer class="footer">
+            <p>Supply Chain Risk Monitoring Dashboard - For Academic Research</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

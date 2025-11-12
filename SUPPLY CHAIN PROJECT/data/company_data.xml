@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<company context="Sản xuất xe máy - VinaBike Corp">
+    
+    <!-- 
+        FILE DỮ LIỆU NGỮ CẢNH ĐÃ ĐƯỢC NÂNG CẤP
+        Mục tiêu: Mở rộng từ khóa để AI có thể nhận diện nhiều loại rủi ro hơn,
+        bao gồm kinh tế, chính trị, pháp lý, thiên tai và các sự kiện gây gián đoạn chuỗi cung ứng.
+    -->
+
+    <!-- 
+        Danh sách nhà cung cấp cốt lõi. Tên công ty và các từ khóa liên quan.
+    -->
+    <suppliers>
+        <!-- === NHÀ CUNG CẤP TRONG NƯỚC === -->
+        <supplier id="VN001" name="Nhà máy Thép Hòa An" tier="1" location="Hải Dương, Việt Nam" status="Active">
+            <contact>
+                <person>Nguyễn Văn Bình</person>
+                <email>binh.nv@hoaansteel.vn</email>
+                <phone>090-123-4567</phone>
+            </contact>
+            <products>
+                <product>Thép cuộn cán nóng (HRC)</product>
+                <product>Khung xe máy các loại</product>
+                <product>Phôi thép</product>
+            </products>
+            <risk_profile>
+                <rating>Low</rating>
+                <notes>Nhà cung cấp chiến lược, hợp đồng dài hạn. Rủi ro chính là biến động giá quặng sắt toàn cầu.</notes>
+            </risk_profile>
+            <keywords>
+                <keyword>thép</keyword>
+                <keyword>khung xe</keyword>
+                <keyword>Hòa An</keyword>
+            </keywords>
+        </supplier>
+        <supplier id="VN002" name="Công ty Nhựa Kỹ thuật A-Plastics" tier="1" location="Bình Dương, Việt Nam" status="Active">
+            <contact>
+                <person>Trần Thị Lan</person>
+                <email>lan.tt@aplastics.com.vn</email>
+                <phone>091-987-6543</phone>
+            </contact>
+            <products>
+                <product>Dàn áo xe máy (nhựa ABS)</product>
+                <product>Các chi tiết nhựa Polypropylene</product>
+            </products>
+            <risk_profile>
+                <rating>Medium</rating>
+                <notes>Phụ thuộc vào nguồn cung hạt nhựa nhập khẩu. Có rủi ro về tỷ giá và gián đoạn vận tải biển.</notes>
+            </risk_profile>
+            <keywords>
+                <keyword>nhựa</keyword>
+                <keyword>dàn áo</keyword>
+                <keyword>ABS</keyword>
+                <keyword>A-Plastics</keyword>
+            </keywords>
+        </supplier>
+        <supplier id="VN003" name="Cao su Đà Nẵng (DRC)" tier="1" location="Đà Nẵng, Việt Nam" status="Warning">
+            <contact>
+                <person>Lê Văn Dũng</person>
+                <email>dung.lv@drc.com.vn</email>
+                <phone>098-111-2222</phone>
+            </contact>
+            <products>
+                <product>Lốp xe máy</product>
+                <product>Săm xe</product>
+            </products>
+            <risk_profile>
+                <rating>High</rating>
+                <notes>Nhà máy tại Đà Nẵng, nhạy cảm với các rủi ro thiên tai (bão, lũ). Đã có tiền lệ giao hàng chậm trong mùa mưa.</notes>
+            </risk_profile>
+            <keywords>
+                <keyword>lốp xe</keyword>
+                <keyword>cao su</keyword>
+                <keyword>DRC</keyword>
+            </keywords>
+        </supplier>
+        <supplier id="VN004" name="Ắc quy GS Battery Việt Nam" tier="1" location="Đồng Nai, Việt Nam" status="Active">
+            <contact>
+                <person>Phạm Thị Mai</person>
+                <email>mai.pt@gs-battery.vn</email>
+                <phone>093-444-5555</phone>
+            </contact>
+            <products>
+                <product>Ắc quy khô</product>
+                <product>Ắc quy Lithium cho xe điện</product>
+            </products>
+            <risk_profile>
+                <rating>Low</rating>
+                <notes>Công ty liên doanh Nhật Bản, quy trình sản xuất ổn định. Nguồn cung chì và lithium là yếu tố cần theo dõi.</notes>
+            </risk_profile>
+            <keywords>
+                <keyword>ắc quy</keyword>
+                <keyword>pin</keyword>
+                <keyword>GS Battery</keyword>
+            </keywords>
+        </supplier>
+
+        <!-- === NHÀ CUNG CẤP NƯỚC NGOÀI === -->
+        <supplier id="TW001" name="TSMC" tier="2" location="Đài Loan" status="Active">
+            <contact>
+                <person>David Chen</person>
+                <email>david.chen@tsmc.com</email>
+                <phone>+886-123-456-789</phone>
+            </contact>
+            <products>
+                <product>Chip điều khiển ECU</product>
+                <product>Vi mạch tích hợp (IC)</product>
+            </products>
+            <risk_profile>
+                <rating>High</rating>
+                <notes>Nhà cung cấp độc quyền chip công nghệ cao. Rủi ro địa chính trị tại eo biển Đài Loan là rất lớn.</notes>
+            </risk_profile>
+            <keywords>
+                <keyword>chip</keyword>
+                <keyword>bán dẫn</keyword>
+                <keyword>IC</keyword>
+                <keyword>TSMC</keyword>
+            </keywords>
+        </supplier>
+        <!-- Các nhà cung cấp khác giữ nguyên cấu trúc tương tự -->
+    </suppliers>
+
+    <!-- 
+        Các địa điểm địa lý quan trọng, bao gồm nhà máy, cảng biển, khu công nghiệp,
+        và các quốc gia/khu vực có ảnh hưởng lớn đến chuỗi cung ứng toàn cầu.
+    -->
+    <locations>
+        <!-- Nhà máy & KCN tại Việt Nam -->
+        <location type="factory">Hòa Lạc</location>
+        <location type="factory">Bình Dương</location>
+        <location type="industrial_zone">KCN Nomura</location>
+        <location type="industrial_zone">KCN Thăng Long</location>
+        <location type="industrial_zone">VSIP</location>
+
+        <!-- Cảng biển & Tuyến vận tải -->
+        <location type="port">Cảng Hải Phòng</location>
+        <location type="port">Cảng Cát Lái</location>
+        <location type="port">Cảng Cái Mép</location>
+        <location type="port">Cảng Đà Nẵng</location>
+        <location type="transport_route">Cao tốc Bắc - Nam</location>
+        <location type="transport_route">Biển Đông</location>
+        <location type="transport_route">Eo biển Malacca</location>
+
+        <!-- Quốc gia & Khu vực chiến lược -->
+        <location type="country">Trung Quốc</location>
+        <location type="country">Mỹ</location>
+        <location type="country">Nhật Bản</location>
+        <location type="country">Hàn Quốc</location>
+        <location type="country">Đài Loan</location>
+        <location type="region">Châu Âu</location>
+        <location type="region">ASEAN</location>
+    </p>
+        <location type="province">Lâm Đồng</location>
+        <location type="country">Philippines</location>
+        <location type="country">Ukraine</location>
+        <location type="country">Nga</location>
+
+    </locations>
+
+    <!-- 
+        Các "nguyên vật liệu" được hiểu theo nghĩa rộng, bao gồm các yếu tố và sự kiện
+        có thể tác động đến chuỗi cung ứng.
+    -->
+    <materials>
+        <!-- Nhóm 1: Nguyên vật liệu & Linh kiện -->
+        <material category="raw_material">thép</material>
+        <material category="raw_material">nhôm</material>
+        <material category="raw_material">đồng</material>
+        <material category="raw_material">cao su</material>
+        <material category="raw_material">nhựa</material>
+        <material category="raw_material">lithium</material>
+        <material category="raw_material">dầu thô</material>
+        <material category="component">chất bán dẫn</material>
+        <material category="component">chip</material>
+        <material category="component">pin</material>
+        <material category="component">mạch điện</material>
+
+        <!-- Nhóm 2: Hậu cần & Vận tải (Logistics) -->
+        <material category="logistics">logistics</material>
+        <material category="logistics">chuỗi cung ứng</material>
+        <material category="logistics">vận tải</material>
+        <material category="logistics">cảng biển</material>
+        <material category="logistics">hàng không</material>
+        <material category="logistics">đường sắt</material>
+        <material category="logistics">container</material>
+        <material category="logistics">ùn ứ</material>
+        <material category="logistics">tắc nghẽn</material>
+        <material category="logistics">gián đoạn</material>
+        
+        <!-- Nhóm 3: Yếu tố Kinh tế Vĩ mô -->
+        <material category="economic">lãi suất</material>
+        <material category="economic">lạm phát</material>
+        <material category="economic">tỷ giá</material>
+        <material category="economic">thuế</material>
+        <material category="economic">suy thoái</material>
+        <material category="economic">chứng khoán</material>
+        <material category="economic">trái phiếu</material>
+        <material category="economic">giá vàng</material>
+        <material category="economic">xăng dầu</material>
+        <material category="economic">vỡ nợ</material>
+        <material category="economic">phá sản</material>
+
+        <!-- Nhóm 4: Sự kiện Gây gián đoạn (Thiên tai, Chính trị, Xã hội) -->
+        <material category="disruption">bão</material>
+        <material category="disruption">lũ lụt</material>
+        <material category="disruption">động đất</material>
+        <material category="disruption">sạt lở</material>
+        <material category="disruption">vỡ đập</material>
+        <material category="disruption">dịch bệnh</material>
+        <material category="disruption">đình công</material>
+        <material category="disruption">biểu tình</material>
+        <material category="disruption">chiến sự</material>
+        <material category="disruption">xung đột</material>
+        <material category="disruption">trừng phạt</material>
+        <material category="disruption">căng thẳng chính trị</material>
+        <material category="disruption">cháy nổ</material>
+        <material category="disruption">tai nạn</material>
+        <material category="disruption">sập</material>
+        
+        <!-- Nhóm 5: Rủi ro Pháp lý & Quy định -->
+        <material category="legal">điều tra</material>
+        <material category="legal">khởi tố</material>
+        <material category="legal">bắt giữ</material>
+        <material category="legal">thanh tra</material>
+        <material category="legal">luật mới</material>
+        <material category="legal">quy định mới</material>
+        <material category="legal">cấm vận</material>
+        <material category="legal">chống bán phá giá</material>
+
+    </materials>
+
+</company>

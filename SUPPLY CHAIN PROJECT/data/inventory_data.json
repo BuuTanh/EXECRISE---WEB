@@ -1,0 +1,46 @@
+{
+  "inventory": [
+    {
+      "productId": "HRC001",
+      "productName": "Thép cuộn cán nóng (HRC)",
+      "supplierId": "VN001",
+      "daysOfStock": 45,
+      "notes": "Tồn kho an toàn ở mức cao."
+    },
+    {
+      "productId": "FRAME01",
+      "productName": "Khung xe máy",
+      "supplierId": "VN001",
+      "daysOfStock": 25,
+      "notes": "Mức tồn kho ổn định."
+    },
+    {
+      "productId": "ABS01",
+      "productName": "Dàn áo xe máy (nhựa ABS)",
+      "supplierId": "VN002",
+      "daysOfStock": 15,
+      "notes": "Đang chờ lô hàng tiếp theo, mức tồn kho trung bình."
+    },
+    {
+      "productId": "TIRE01",
+      "productName": "Lốp xe máy",
+      "supplierId": "VN003",
+      "daysOfStock": 7,
+      "notes": "Mức tồn kho thấp, rất nhạy cảm với sự gián đoạn từ nhà cung cấp DRC."
+    },
+    {
+      "productId": "BAT01",
+      "productName": "Ắc quy khô",
+      "supplierId": "VN004",
+      "daysOfStock": 60,
+      "notes": "Tồn kho an toàn."
+    },
+    {
+      "productId": "ECU01",
+      "productName": "Chip điều khiển ECU",
+      "supplierId": "TW001",
+      "daysOfStock": 90,
+      "notes": "Đã nhập số lượng lớn để dự phòng rủi ro địa chính trị."
+    }
+  ]
+}
